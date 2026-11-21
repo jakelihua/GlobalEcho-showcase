@@ -32,7 +32,7 @@
 
 | 模块 | 核心机制与边界 |
 | :--- | :--- |
-| **来信取证与状态护栏** | 确定性规则引擎与 **DeepSeek Flash（结构化语义抽取）+ DeepSeek V4 Pro（深度审单推理）** 分级协作；识别验收条件、付款限制、增项与版本冲突，**解耦维护「交付验收 / 付款排期 / 实际到账」三类状态**，模型不可直接越权结项（`canClose` 由规则护栏把关） |
+| **来信取证与状态护栏** | 确定性规则引擎与 **DeepSeek V4.1 Flash（结构化语义抽取）+ DeepSeek V4 Pro（深度审单推理）** 分级协作；识别验收条件、付款限制、增项与版本冲突，**解耦维护「交付验收 / 付款排期 / 实际到账」三类状态**，模型不可直接越权结项（`canClose` 由规则护栏把关） |
 | **多轮审阅与状态继承** | 支持多轮邮件连续跟进，自动继承尚未结清的分期金额、前置条件与撤回/重批记录，严格区分 QA 签核与增项批准 |
 | **双源检索增强** | 接入**知乎官方开放平台检索**（同行实战依据，明确区分来源摘录与适用前提）以及 **multilingual-e5-small（384 维）+ PGlite / pgvector** 本地相似案例检索 |
 | **人机协同回信与核验单** | 仅在用户人工核对并采纳依据后，生成可编辑英文回信草稿与核验清单；同类意图自动去重，完整保留人工修改 |
@@ -46,7 +46,7 @@
 买方来信 + 当前交付版本与付款台账
     │
     ▼
-[确定性规则引擎]  ◀──▶  [DeepSeek Flash 结构化抽取 + DeepSeek V4 Pro 深度审单推理]
+[确定性规则引擎]  ◀──▶  [DeepSeek V4.1 Flash 结构化抽取 + DeepSeek V4 Pro 深度审单推理]
     │  (状态护栏：解耦验收 / 付款排期 / 实际到账，禁止模型直接结项)
     ▼
 [双源证据检索与本地知识沉淀]
@@ -61,7 +61,7 @@
 可编辑英文追问回信 + 结构化核验清单 → 多轮持续跟进
 ```
 
-- **技术栈**：Next.js (TypeScript / React) · Python & TypeScript 双端规则护栏 · `DeepSeek Flash` / `DeepSeek V4 Pro` · `multilingual-e5-small` · `PGlite / pgvector`
+- **技术栈**：Next.js (TypeScript / React) · Python & TypeScript 双端规则护栏 · `DeepSeek V4.1 Flash` / `DeepSeek V4 Pro` · `multilingual-e5-small` · `PGlite / pgvector`
 
 ---
 
